@@ -14,8 +14,38 @@ public class MemberDto {
 	private String userpwd;
 	@ApiModelProperty(value = "회원 이메일")
 	private String email;
+	@ApiModelProperty(value = "회원 최근본방")
+	private String recentroom;
+	@ApiModelProperty(value = "회원 찜한방")
+	private String likeroom;
+	@ApiModelProperty(value = "회원 1:1문의내역")
+	private int qnano;
 	@ApiModelProperty(value = "회원 가입일")
 	private String joindate;
+
+	public String getRecentroom() {
+		return recentroom;
+	}
+
+	public void setRecentroom(String recentroom) {
+		this.recentroom = recentroom;
+	}
+
+	public String getLikeroom() {
+		return likeroom;
+	}
+
+	public void setLikeroom(String likeroom) {
+		this.likeroom = likeroom;
+	}
+
+	public int getQnano() {
+		return qnano;
+	}
+
+	public void setQnano(int qnano) {
+		this.qnano = qnano;
+	}
 
 	public String getUserid() {
 		return userid;
