@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.vue.model.mapper.FaqMapper">
+
+	<!-- 자주 묻는 질문 등록 -->
+	<insert id="writeFaq" parameterType="FaqDto">
+        insert into faq (question, answer)
+        values (#{question}, #{answer})
+    </insert>
+    
+	<!-- 자주 묻는 질문 삭제 -->
+	<delete id="deleteFaq" parameterType="int">
+        delete from faq
+        where no = #{no}
+	</delete>
+	
+	<!-- 자주 묻는 질문 수정 -->
+	<update id="modifyFaq" parameterType="FaqDto">
+        update faq
+        set question = #{question}, answer = #{answer}
+        where no = #{no}
+	</update>
+	
+	<!-- 자주 묻는 질문 조회 -->
+	<select id="listFaq" resultType="FaqDto">
+		select no, question, answer
+		from faq
+    </select>
+    
+	<!-- 자주 묻는 질문 상세 조회 -->
+    <select id="getFaq" parameterType="int" resultType="FaqDto">
+		select no, question, answer
+		from faq
+		where no = #{no}
+    </select>
+
+</mapper>
