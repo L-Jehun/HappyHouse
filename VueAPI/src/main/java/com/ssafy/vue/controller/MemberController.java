@@ -98,7 +98,7 @@ public class MemberController {
 	}
 
 	@ApiOperation(value = "회원가입", notes = "회원가입", response = String.class)
-	@PostMapping
+	@PostMapping("/register")
 	public ResponseEntity<String> registerUser(@RequestBody @ApiParam(value = "회원 정보.", required = true) MemberDto memberDto) throws Exception {
 		logger.info("registerUser - 호출");
 		if (memberService.registerUser(memberDto)) {
@@ -122,6 +122,7 @@ public class MemberController {
 	@DeleteMapping("/{userid}")
 	public ResponseEntity<String> deleteUser(@PathVariable("userid") @ApiParam(value = "삭제할 회원 아이디", required = true) String userid) throws Exception {
 		logger.info("deleteUser - 호출");
+		System.out.println("userid : " + userid);
 		if (memberService.deleteUser(userid)) {
 			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 		}
