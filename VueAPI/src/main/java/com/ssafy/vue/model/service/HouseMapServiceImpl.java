@@ -17,23 +17,34 @@ public class HouseMapServiceImpl implements HouseMapService {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<SidoGugunCodeDto> getSido() throws Exception {
-		return sqlSession.getMapper(HouseMapMapper.class).getSido();
+	public String getSidoCode(String sidoName) throws Exception {
+		return sqlSession.getMapper(HouseMapMapper.class).getSidoCode(sidoName);
 	}
 
 	@Override
-	public List<SidoGugunCodeDto> getGugunInSido(String sido) throws Exception {
-		return sqlSession.getMapper(HouseMapMapper.class).getGugunInSido(sido);
+	public String getGugunCode(SidoGugunCodeDto sidoGugunCodeDto) throws Exception {
+		return sqlSession.getMapper(HouseMapMapper.class).getGugunCode(sidoGugunCodeDto);
 	}
-
-	@Override
-	public List<HouseInfoDto> getDongInGugun(String gugun) throws Exception {
-		return sqlSession.getMapper(HouseMapMapper.class).getDongInGugun(gugun);
-	}
-
-	@Override
-	public List<HouseInfoDto> getAptInDong(String dong) throws Exception {
-		return sqlSession.getMapper(HouseMapMapper.class).getAptInDong(dong);
-	}
+	
+	
+//	@Override
+//	public List<SidoGugunCodeDto> getSido() throws Exception {
+//		return sqlSession.getMapper(HouseMapMapper.class).getSido();
+//	}
+//
+//	@Override
+//	public List<SidoGugunCodeDto> getGugunInSido(String sido) throws Exception {
+//		return sqlSession.getMapper(HouseMapMapper.class).getGugunInSido(sido);
+//	}
+//
+//	@Override
+//	public List<HouseInfoDto> getDongInGugun(String gugun) throws Exception {
+//		return sqlSession.getMapper(HouseMapMapper.class).getDongInGugun(gugun);
+//	}
+//
+//	@Override
+//	public List<HouseInfoDto> getAptInDong(String dong) throws Exception {
+//		return sqlSession.getMapper(HouseMapMapper.class).getAptInDong(dong);
+//	}
 
 }
