@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.vue.model.mapper.AddressMapper">
+
+	<!-- 주소 조회 -->
+	<select id="listAddress" resultType="String">
+		select address
+		from address
+	</select>
+
+	<!-- <select id="listAddress" parameterType="String" resultType="String"> 
+		select address from address <if test="address != null and address != ''"> 
+		where address like concat('%', #{address}, '%') </if> </select> -->
+
+</mapper>
