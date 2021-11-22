@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.vue.model.BoardDto;
-import com.ssafy.vue.model.BoardParameterDto;
+import com.ssafy.vue.model.ParameterDto;
 import com.ssafy.vue.model.service.BoardService;
 
 import io.swagger.annotations.Api;
@@ -50,7 +50,7 @@ public class BoardController {
 	
 	@ApiOperation(value = "게시판 글목록", notes = "모든 게시글의 정보를 반환한다.", response = List.class)
 	@GetMapping
-	public ResponseEntity<List<BoardDto>> listArticle(@ApiParam(value = "게시글을 얻기위한 부가정보.", required = true) BoardParameterDto boardParameterDto) throws Exception {
+	public ResponseEntity<List<BoardDto>> listArticle(@ApiParam(value = "게시글을 얻기위한 부가정보.", required = true) ParameterDto boardParameterDto) throws Exception {
 		logger.info("listArticle - 호출");
 		return new ResponseEntity<List<BoardDto>>(boardService.listArticle(boardParameterDto), HttpStatus.OK);
 	}

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ssafy.util.PageNavigation;
 import com.ssafy.vue.model.BoardDto;
-import com.ssafy.vue.model.BoardParameterDto;
+import com.ssafy.vue.model.ParameterDto;
 import com.ssafy.vue.model.mapper.BoardMapper;
 
 @Service
@@ -27,14 +27,14 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardDto> listArticle(BoardParameterDto boardParameterDto) throws Exception {
+	public List<BoardDto> listArticle(ParameterDto boardParameterDto) throws Exception {
 		int start = boardParameterDto.getPg() == 0 ? 0 : (boardParameterDto.getPg() - 1) * boardParameterDto.getSpp();
 		boardParameterDto.setStart(start);
 		return sqlSession.getMapper(BoardMapper.class).listArticle(boardParameterDto);
 	}
 
 	@Override
-	public PageNavigation makePageNavigation(BoardParameterDto boardParameterDto) throws Exception {
+	public PageNavigation makePageNavigation(ParameterDto boardParameterDto) throws Exception {
 		int naviSize = 5;
 		PageNavigation pageNavigation = new PageNavigation();
 		pageNavigation.setCurrentPage(boardParameterDto.getPg());
