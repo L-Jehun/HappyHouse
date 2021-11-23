@@ -14,9 +14,9 @@ public interface HouseMapService {
 	String getSidoCode(String sidoName) throws Exception;
 	String getGugunCode(SidoGugunCodeDto sidoGugunCodeDto) throws Exception;
 	
-//	List<SidoGugunCodeDto> getSido() throws Exception;
-//	List<SidoGugunCodeDto> getGugunInSido(String sido) throws Exception;
-//	List<HouseInfoDto> getDongInGugun(String gugun) throws Exception;
+	List<SidoGugunCodeDto> getSido() throws Exception;
+	List<SidoGugunCodeDto> getGugunInSido(String sido) throws Exception;
+	List<HouseInfoDto> getDongInGugun(String gugun) throws Exception;
 //	List<HouseInfoDto> getAptInDong(String dong) throws Exception;
 	
 }

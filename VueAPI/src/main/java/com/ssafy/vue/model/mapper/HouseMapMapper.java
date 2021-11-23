@@ -11,9 +11,9 @@ import com.ssafy.vue.model.SidoGugunCodeDto;
 @Mapper
 public interface HouseMapMapper {
 
-//	List<SidoGugunCodeDto> getSido() throws SQLException;
-//	List<SidoGugunCodeDto> getGugunInSido(String sido) throws SQLException;
-//	List<HouseInfoDto> getDongInGugun(String gugun) throws SQLException;
+	List<SidoGugunCodeDto> getSido() throws SQLException;
+	List<SidoGugunCodeDto> getGugunInSido(String sido) throws SQLException;
+	List<HouseInfoDto> getDongInGugun(String gugun) throws SQLException;
 //	List<HouseInfoDto> getAptInDong(String dong) throws SQLException;
 	
 	String getSidoCode(String sidoName) throws SQLException;

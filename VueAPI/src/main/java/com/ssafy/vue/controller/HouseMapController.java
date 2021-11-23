@@ -49,24 +49,24 @@ public class HouseMapController {
 		return new ResponseEntity<String>(haHouseMapService.getGugunCode(sidoGugunCodeDto), HttpStatus.OK);
 	}
 	
-//	@ApiOperation(value = "시도 정보", notes = "전국의 시도를 반환한다.", response = List.class)
-//	@GetMapping("/sido")
-//	public ResponseEntity<List<SidoGugunCodeDto>> sido() throws Exception {
-//		logger.info("sido - 호출");
-//		return new ResponseEntity<List<SidoGugunCodeDto>>(haHouseMapService.getSido(), HttpStatus.OK);
-//	}
-//	
-//	@ApiOperation(value = "구군 정보", notes = "전국의 구군을 반환한다.", response = List.class)
-//	@GetMapping("/gugun")
-//	public ResponseEntity<List<SidoGugunCodeDto>> gugun(@RequestParam("sido") @ApiParam(value = "시도코드.", required = true) String sido) throws Exception {
-//		logger.info("gugun - 호출");
-//		return new ResponseEntity<List<SidoGugunCodeDto>>(haHouseMapService.getGugunInSido(sido), HttpStatus.OK);
-//	}
-//	
-//	@GetMapping("/dong")
-//	public ResponseEntity<List<HouseInfoDto>> dong(@RequestParam("gugun") String gugun) throws Exception {
-//		return new ResponseEntity<List<HouseInfoDto>>(haHouseMapService.getDongInGugun(gugun), HttpStatus.OK);
-//	}
+	@ApiOperation(value = "시도 정보", notes = "전국의 시도를 반환한다.", response = List.class)
+	@GetMapping("/sido")
+	public ResponseEntity<List<SidoGugunCodeDto>> sido() throws Exception {
+		logger.info("sido - 호출");
+		return new ResponseEntity<List<SidoGugunCodeDto>>(haHouseMapService.getSido(), HttpStatus.OK);
+	}
+	
+	@ApiOperation(value = "구군 정보", notes = "전국의 구군을 반환한다.", response = List.class)
+	@GetMapping("/gugun")
+	public ResponseEntity<List<SidoGugunCodeDto>> gugun(@RequestParam("sido") @ApiParam(value = "시도코드.", required = true) String sido) throws Exception {
+		logger.info("gugun - 호출");
+		return new ResponseEntity<List<SidoGugunCodeDto>>(haHouseMapService.getGugunInSido(sido), HttpStatus.OK);
+	}
+	
+	@GetMapping("/dong")
+	public ResponseEntity<List<HouseInfoDto>> dong(@RequestParam("gugun") String gugun) throws Exception {
+		return new ResponseEntity<List<HouseInfoDto>>(haHouseMapService.getDongInGugun(gugun), HttpStatus.OK);
+	}
 //	
 //	@GetMapping("/apt")
 //	public ResponseEntity<List<HouseInfoDto>> apt(@RequestParam("dong") String dong) throws Exception {

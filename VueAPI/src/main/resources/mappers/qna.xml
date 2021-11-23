@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.vue.model.mapper.QnaMapper">
+
+	<!-- 1:1문의 질문 등록 -->
+	<insert id="writeQuestion" parameterType="QnaDto">
+		insert into qna
+		(userid, title, content)
+		values (#{userid}, #{title}, #{content})
+	</insert>
+
+	<!-- 1:1문의 답변 등록 -->
+	<update id="writeAnswer" parameterType="QnaDto">
+		update qna
+		set answer =
+		#{answer}
+		where no = #{no}
+	</update>
+
+	<!-- 1:1문의 질문 삭제 -->
+	<delete id="deleteQna" parameterType="int">
+		delete from qna
+		where no =
+		#{no}
+	</delete>
+
+	<!-- 1:1문의 답변 삭제 -->
+	<delete id="deleteAnswer" parameterType="int">
+		update qna
+		set answer = null
+		where no = #{no}
+	</delete>
+
+	<!-- 1:1문의 질문 수정 -->
+	<update id="modifyQuestion" parameterType="QnaDto">
+		update qna
+		set title =
+		#{title}, content = #{content}
+		where no = #{no}
+	</update>
+
+	<!-- 1:1문의 답변 수정 -->
+	<update id="modifyAnswer" parameterType="QnaDto">
+		update qna
+		set answer =
+		#{answer}
+		where no = #{no}
+	</update>
+
+	<!-- 1:1문의 조회 -->
+	<select id="listQna" resultType="QnaDto">
+		select no, userid, title,
+		content, answer, regtime
+		from qna
+	</select>
+
+	<!-- 1:1문의 상세 조회 -->
+	<select id="getQna" parameterType="int" resultType="QnaDto">
+		select no,
+		userid, title, content, answer, regtime
+		from qna
+		where no = #{no}
+	</select>
+
+</mapper>
